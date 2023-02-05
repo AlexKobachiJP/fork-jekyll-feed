@@ -9,6 +9,15 @@
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ page.url | absolute_url | xml_escape }}</id>
 
+  {% assign icon = site.feed.icon %}
+  {% if icon %}
+    <icon>{{ icon| absolute_url | xml_escape }}</icon>
+  {% endif %}
+  {% assign logo = site.feed.logo %}
+  {% if logo %}
+    <logo>{{ logo | absolute_url | xml_escape }}</logo>
+  {% endif %}
+  
   {% assign title = site.title | default: site.name %}
   {% if page.collection != "posts" %}
     {% assign collection = page.collection | capitalize %}
